@@ -4,7 +4,7 @@
 
  module.exports = {
     name: "rradd",
-    description: "set auto-partner channel",
+    description: "add reaction role",
     run: async (client, message, args, db, prefix) => {
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`**YOU MUST HAVE PERMISSIONS.**`)
     let channel = message.mentions.channels.first();
