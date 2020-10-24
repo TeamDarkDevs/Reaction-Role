@@ -2,9 +2,9 @@
 ## ℹ️
 - Project Pics
 # Easy To Setup
-  <img src="https://cdn.discordapp.com/attachments/769174794439622727/769506987176099840/unknown.png" />
+  # <img src="https://cdn.discordapp.com/attachments/769174794439622727/769506987176099840/unknown.png" />
 # Easy To Delete
-  <img src="https://cdn.discordapp.com/attachments/769174794439622727/769507066926333982/unknown.png" />
+  # <img src="https://cdn.discordapp.com/attachments/769174794439622727/769507066926333982/unknown.png" />
  
 ## 📝 Starting Up
 - ```npm i```
