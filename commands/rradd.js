@@ -45,10 +45,6 @@
      db.set(`emoteid_${message.guild.id}_${emojicheck.id}`, emojicheck.id)
      db.set(`role_${message.guild.id}_${emojicheck.id}`, role.id)
      db.set(`message_${message.guild.id}_${emojicheck.id}`, args[1])
-     let data = {
-         author: message.author.username
-     }
-    db.push(`reactiondata_${message.guild.id}`)
-        })
+         })
 
     }}
