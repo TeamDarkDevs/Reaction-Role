@@ -1,5 +1,5 @@
 <h1 align="center">Anit-Raid</h1>
-## ℹ️
+
 - Project Pics
 # Easy To Setup
   # <img src="https://cdn.discordapp.com/attachments/769174794439622727/769506987176099840/unknown.png" />
