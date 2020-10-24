@@ -7,8 +7,8 @@
   <img src="https://cdn.discordapp.com/attachments/769174794439622727/769507066926333982/unknown.png" />
  
 ## 📝 Starting Up
-- npm i
-- npm start
+- ```npm i```
+- ```npm start```
 
 ## 💨 Run the projects
 - Glitch: [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/TeamDarkDevs/Reaction-Role)
