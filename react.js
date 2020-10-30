@@ -129,9 +129,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   if(!role) return;
    if(reaction.message.id == messageid && reaction.emoji.id == `${emote}`) {
     reaction.message.guild.members.fetch(user).then(member => {
-              if(!member.roles.cache.has(role)) {
-         user.send('it`s looks u didnt have ${role.name} Re-React To Get it again`)
-                   }
+
     if(member.roles.cache.has(role)) {
    let embed = new Discord.MessageEmbed()
    .setAuthor(user.username , user.displayAvatarURL())
@@ -159,9 +157,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
   if(!role) return;
    if(reaction.message.id == messageid && reaction.emoji.name == `${emote}`) {
     reaction.message.guild.members.fetch(user).then(member => {
-         if(!member.roles.cache.has(role)) {
-         user.send('it`s looks u didnt have ${role.name} Re-React To Get it again`)
-         }
+    
     if(member.roles.cache.has(role)) {
    let embed = new Discord.MessageEmbed()
    .setAuthor(user.username , user.displayAvatarURL())
