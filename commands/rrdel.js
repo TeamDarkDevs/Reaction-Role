@@ -3,8 +3,8 @@
  const { attention, yes, mention, channele, msg } = require('./../emojis.json')
 
  module.exports = {
-    name: "rrdel",
-    description: "delete reaction role",
+    name: "rrdelete",
+    description: "set auto-partner channel",
     run: async (client, message, args, db, prefix) => {
     if(!args[0]) return message.channel.send(`${prefix}rrdelete (messageid) (emoji)`)
     let channel = await db.get(`rrremove_${message.guild.id}_${args[0]}2`)
@@ -15,9 +15,13 @@
     let a = client.channels.cache.get(channel).messages.fetch(args[0])
    if(!a) return message.channel.send(`**That's Message ID Invaild**`)
    if(!args[1]) return message.channel.send(`${prefix}rrdelete (mesageid) (emoji)`)
+   function isCustomEmoji(emoji) {
+      return emoji.split(":").length == 1 ? false : true;
+    }
+    if (isCustomEmoji(args[1])) {
+
    let customemoji = Discord.Util.parseEmoji(args[1]);
-   
-   let emojicheck = client.emojis.cache.find(emoji => emoji.id === `${customemoji.id}`);
+    let emojicheck = client.emojis.cache.find(emoji => emoji.id === `${customemoji.id}`);
    if(!emojicheck) return message.channel.send(`this emoji is invaild!`)
 
    let emote = await db.get(`rrremove_${message.guild.id}_${args[0]}_${args[1]}`)
@@ -36,9 +40,33 @@ darkcodes.reactions.cache.get(`${emojicheck.id}`).remove()
         .setTimestamp()
         message.channel.send(embed)
         db.delete(`emoteid_${message.guild.id}_${emojicheck}`)
+        db.delete(`emojistatus_${args[0]}_${args[1]}`)
         db.delete(`role_${message.guild.id}_${emojicheck}`)
         db.delete(`message_${message.guild.id}_${emojicheck}`)
        db.delete(`rrremove_${message.guild.id}_${args[0]}2`)
        db.delete(`rrremove_${message.guild.id}_${args[0]}_${args[1]}`)
        db.delete(`rerremove_${message.guild.id}_${args[0]}`)
+       return;
+}
+client.channels.cache.get(channel).messages.fetch(args[0]).then(darkcodes => {
+   darkcodes.reactions.cache.get(`${args[1]}`).remove() 
+      })
+   
+      let embed = new Discord.MessageEmbed()
+           .setAuthor(message.author.username, message.author.displayAvatarURL())
+           .setDescription(`**Sucsses**
+           Removed  **${msg} [Go To Message](https://discord.com/channels/${message.guild.id}/${channel}/${args[0]})**
+         ${attention} Reaciton Cleared 
+         ${attention} Reaciton Role Removed.`)
+           .setFooter(message.guild.name , message.guild.iconURL())
+           .setTimestamp()
+           message.channel.send(embed)
+           db.delete(`emojistatus_${args[0]}_${args[1]}`)
+           db.delete(`emoteid_${message.guild.id}_${args[1]}`)
+           db.delete(`role_${message.guild.id}_${args[1]}`)
+           db.delete(`message_${message.guild.id}_${args[1]}`)
+          db.delete(`rrremove_${message.guild.id}_${args[0]}2`)
+          db.delete(`rrremove_${message.guild.id}_${args[0]}_${args[1]}`)
+          db.delete(`rerremove_${message.guild.id}_${args[0]}`)
+   
  }}
