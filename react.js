@@ -130,7 +130,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
    if(reaction.message.id == messageid && reaction.emoji.id == `${emote}`) {
     reaction.message.guild.members.fetch(user).then(member => {
 
-    if(member.roles.cache.has(role)) {
    let embed = new Discord.MessageEmbed()
    .setAuthor(user.username , user.displayAvatarURL())
    .setDescription(`${emotfe.attention} **${reaction.message.guild.roles.cache.get(role).name}** Role Removed From You!`)
@@ -138,7 +137,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
    .setTimestamp()
    user.send(embed)
    member.roles.remove(role)
-    }
+    
   })
   }
 })
@@ -158,7 +157,6 @@ client.on('messageReactionRemove', async (reaction, user) => {
    if(reaction.message.id == messageid && reaction.emoji.name == `${emote}`) {
     reaction.message.guild.members.fetch(user).then(member => {
     
-    if(member.roles.cache.has(role)) {
    let embed = new Discord.MessageEmbed()
    .setAuthor(user.username , user.displayAvatarURL())
    .setDescription(`${emotfe.attention} **${reaction.message.guild.roles.cache.get(role).name}** Role Removed From You!`)
@@ -166,7 +164,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
    .setTimestamp()
    user.send(embed)
    member.roles.remove(role)
-    }
+    
   })
   }
 })
